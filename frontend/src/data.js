@@ -1,7 +1,7 @@
 let data = [
-    {
+    { 
         name: "Ribbed Cotton Bodysuits",
-        slug: "product-1",
+        slug: "Ribbed Cotton Bodysuits",
         img: "/assets/images/Image-1-1.jpg",
         price: "80",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -18,7 +18,7 @@ let data = [
     },    
     {
         name: "Twill Shirt for Woman",
-        slug: "product-2",
+        slug: "Twill Shirt for Woman",
         img: "/assets/images/Image-2-1.jpg",
         price: "110",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -35,7 +35,7 @@ let data = [
     },
     {
         name: "Grand Atlantic Boots",
-        slug: "product-3",
+        slug: "Grand Atlantic Boots",
         img: "/assets/images/Image-3-1.jpg",
         price: "210",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -52,7 +52,7 @@ let data = [
     },
     {
         name: "Women's Faux Shirt",
-        slug: "product-4",
+        slug: "Women's Faux Shirt",
         img: "/assets/images/Image-4-1.jpg",
         price: "150",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -69,7 +69,7 @@ let data = [
     },
     {
         name: "Double-breasted Blazer",
-        slug: "product-5",
+        slug: "Double-breasted Blazer",
         img: "/assets/images/Image-5-1.jpg",
         price: "115",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -86,7 +86,7 @@ let data = [
     },
     {
         name: "Wedding Diamond Ring",
-        slug: "product-6",
+        slug: "Wedding Diamond Ring",
         img: "/assets/images/Image-6-1.jpg",
         price: "115",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -103,7 +103,7 @@ let data = [
     },
     {
         name: "Denim Official Coat",
-        slug: "product-7",
+        slug: "Denim Official Coat",
         img: "/assets/images/Image-7-1.jpg",
         price: "220",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -120,7 +120,7 @@ let data = [
     },
     {
         name: "Dress for Girl",
-        slug: "product-8",
+        slug: "Dress for Girl",
         img: "/assets/images/Image-8-1.jpg",
         price: "80",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -137,7 +137,7 @@ let data = [
     },
     {
         name: "Shirt for Woman",
-        slug: "product-9",
+        slug: "Shirt for Woman",
         img: "/assets/images/Image-9-1.jpg",
         price: "80",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -154,7 +154,7 @@ let data = [
     },
     {
         name: "Skinny Cotton Pant",
-        slug: "product-10",
+        slug: "Skinny Cotton Pant",
         img: "/assets/images/Image-10-1.jpg",
         price: "125",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -171,7 +171,7 @@ let data = [
     },
     {
         name: "Tinted Sunglasses",
-        slug: "product-11",
+        slug: "Tinted Sunglasses",
         img: "/assets/images/Image-11-1.jpg",
         price: "200",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -188,7 +188,7 @@ let data = [
     },
     {
         name: "Men's Classic Stretch",
-        slug: "product-12",
+        slug: "Men's Classic Stretch",
         img: "/assets/images/Image-12-1.jpg",
         price: "180",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -205,7 +205,7 @@ let data = [
     },    
     {
         name: "Girls Metallic Coat",
-        slug: "product-13",
+        slug: "Girls Metallic Coat",
         img: "/assets/images/Image-13-1.jpg",
         price: "170",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -222,7 +222,7 @@ let data = [
     },
     {
         name: "Varsi Leather Bag",
-        slug: "product-14",
+        slug: "Varsi Leather Bag",
         img: "/assets/images/Image-14-1.jpg",
         price: "115",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -239,7 +239,7 @@ let data = [
     },
     {
         name: "Men's Classic Polo",
-        slug: "product-15",
+        slug: "Men's Classic Polo",
         img: "assets/images/Image-15-1.jpg",
         price: "180",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
@@ -256,7 +256,7 @@ let data = [
     },
     {
         name: "Touch Interlock Polo",
-        slug: "product-16",
+        slug: "Touch Interlock Polo",
         img: "/assets/images/Image-16-1.jpg",
         price: "140",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
