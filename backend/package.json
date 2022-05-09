@@ -1,5 +1,6 @@
 {
   "name": "backend",
+  "proxy":"http://localhost:8000/products",
   "type": "module",
   "version": "1.0.0",
   "description": "",
