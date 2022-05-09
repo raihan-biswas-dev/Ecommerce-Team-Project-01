@@ -16,7 +16,7 @@ function App() {
           <Container>
             <Navbar.Brand href="#home">MERN TEAM</Navbar.Brand>
             <Nav className="ms-auto mainMenu">
-              <Link to="/backend">Home</Link>
+              <Link to="/">Home</Link>
               <Link to="/products">Products</Link>
             </Nav>
           </Container>

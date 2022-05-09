@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import axios from 'axios'
-import data from '../data'
 
 
 function Products() {
@@ -10,19 +9,30 @@ function Products() {
 
     const [product, setProduct] = useState([])
 
-    useEffect(() => {
 
-        
+    useEffect(() => {
+        async function fetchProduct() {
+            let { data } = await axios.get("http://localhost:8000/products")
+            setProduct(data)
+        }
+        fetchProduct()
 
     }, [])
+
+
+
+
+
+
+
 
 
     return (
         <div>
             <Container >
                 <Row>
-                    {data.map(item => (
-                        <Col lg={3}>
+                    {product.map((item, index) => (
+                        <Col lg={3} key={index}>
                             <Card style={{ width: '18rem' }}>
                                 <Card.Img variant="top" src={item.img} />
                                 <Card.Body>
