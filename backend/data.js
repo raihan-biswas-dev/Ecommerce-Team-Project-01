@@ -5,6 +5,7 @@ let data = [
         img: "/assets/images/Image-1-1.jpg",
         price: "80",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "5",
         numberOfRating: "84",
         stoke: "23",
@@ -16,11 +17,12 @@ let data = [
         totalSell: 320
     },    
     {
-        name: "Fit Twill Shirt for Woman",
+        name: "Twill Shirt for Woman",
         slug: "product-2",
         img: "/assets/images/Image-2-1.jpg",
         price: "110",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.4",
         numberOfRating: "84",
         stoke: "42",
@@ -32,11 +34,12 @@ let data = [
         totalSell: 142
     },
     {
-        name: "Grand Atlantic Chukka Boots",
+        name: "Grand Atlantic Boots",
         slug: "product-3",
         img: "/assets/images/Image-3-1.jpg",
         price: "210",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "5",
         numberOfRating: "149",
         stoke: "124",
@@ -48,11 +51,12 @@ let data = [
         totalSell: 231
     },
     {
-        name: "Women's Faux-Trim Shirt",
+        name: "Women's Faux Shirt",
         slug: "product-4",
         img: "/assets/images/Image-4-1.jpg",
         price: "150",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "5",
         numberOfRating: "84",
         stoke: "100",
@@ -69,6 +73,7 @@ let data = [
         img: "/assets/images/Image-5-1.jpg",
         price: "115",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.5",
         numberOfRating: "44",
         stoke: "41",
@@ -85,6 +90,7 @@ let data = [
         img: "/assets/images/Image-6-1.jpg",
         price: "115",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.9",
         numberOfRating: "94",
         stoke: "87",
@@ -101,6 +107,7 @@ let data = [
         img: "/assets/images/Image-7-1.jpg",
         price: "220",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.3",
         numberOfRating: "124",
         stoke: "121",
@@ -112,11 +119,12 @@ let data = [
         totalSell: 310
     },
     {
-        name: "Baby Dress for Girl",
+        name: "Dress for Girl",
         slug: "product-8",
         img: "/assets/images/Image-8-1.jpg",
         price: "80",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.8",
         numberOfRating: "412",
         stoke: "48",
@@ -128,11 +136,12 @@ let data = [
         totalSell: 511
     },
     {
-        name: "Fit Twill Shirt for Woman",
+        name: "Shirt for Woman",
         slug: "product-9",
         img: "/assets/images/Image-9-1.jpg",
         price: "80",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.6",
         numberOfRating: "210",
         stoke: "113",
@@ -149,6 +158,7 @@ let data = [
         img: "/assets/images/Image-10-1.jpg",
         price: "125",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.2",
         numberOfRating: "127",
         stoke: "173",
@@ -165,6 +175,7 @@ let data = [
         img: "/assets/images/Image-11-1.jpg",
         price: "200",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.9",
         numberOfRating: "145",
         stoke: "59",
@@ -176,11 +187,12 @@ let data = [
         totalSell: 302
     },
     {
-        name: "Men's Classic Stretch Shirt",
+        name: "Men's Classic Stretch",
         slug: "product-12",
         img: "/assets/images/Image-12-1.jpg",
         price: "180",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "5",
         numberOfRating: "87",
         stoke: "89",
@@ -197,6 +209,7 @@ let data = [
         img: "/assets/images/Image-13-1.jpg",
         price: "170",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.6",
         numberOfRating: "151",
         stoke: "12",
@@ -213,6 +226,7 @@ let data = [
         img: "/assets/images/Image-14-1.jpg",
         price: "115",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "5",
         numberOfRating: "82",
         stoke: "52",
@@ -224,11 +238,12 @@ let data = [
         totalSell: 215
     },
     {
-        name: "Men's Classic Fit Polo",
+        name: "Men's Classic Polo",
         slug: "product-15",
         img: "assets/images/Image-15-1.jpg",
         price: "180",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.5",
         numberOfRating: "174",
         stoke: "72",
@@ -240,11 +255,12 @@ let data = [
         totalSell: 256
     },
     {
-        name: "Soft Touch Interlock Polo",
+        name: "Touch Interlock Polo",
         slug: "product-16",
         img: "/assets/images/Image-16-1.jpg",
         price: "140",
         description: "Matent maecenas nec massa viverra aci ute litora aliquam habitant proin commodo bibendum rutru habitant est magnis quisque aliquet congue vesti bulum suscipi erose tellus odio elite purus feugiat prim libero senes nisie gravia",
+        carddescription: "Matent maecenas nec massa viverra aci ute litora",
         rating: "4.7",
         numberOfRating: "177",
         stoke: "78",
@@ -257,4 +273,4 @@ let data = [
     },
 ]
 
-module.exports = data
+export default data
