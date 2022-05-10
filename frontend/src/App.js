@@ -4,9 +4,9 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Products from './components/Products';
 import Signup from './components/Signup';
-import { MdOutlineAccountCircle } from 'react-icons/md';
 import { useContext } from 'react';
 import { Store } from './Store';
+import { ToastContainer, } from 'react-toastify';
 
 
 function App() {
@@ -51,6 +51,9 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
+        <Container>
+        <ToastContainer position='bottom-center' limit={1} />
+        </Container>
       </BrowserRouter>
     </div>
     

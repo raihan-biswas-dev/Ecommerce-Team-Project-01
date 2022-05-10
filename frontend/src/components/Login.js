@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import bannerData from '../bannerData'
 import { Store } from '../Store'
-
+import {toast} from 'react-toastify'
 
 const Login = () => {
 
@@ -32,7 +32,7 @@ const Login = () => {
       localStorage.setItem('userInfo',JSON.stringify(data))
       navigate(redirect || "/")
     }catch(err){
-      window.alert("Invalid E-mail or Password")
+      toast.error("Invalid E-mail or Password")
     }
 
   }
