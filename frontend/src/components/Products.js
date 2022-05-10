@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react'
 import { Container, Row, Col, Card, Button, Spinner } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import axios from 'axios'
+import { Helmet } from 'react-helmet-async';
 import Rating from './Rating';
 
 
@@ -54,7 +55,9 @@ function Products() {
     return (
         <div>
             <Container >
-
+                <Helmet>
+                    <title>product page</title>
+                </Helmet>
                 <Row>
                     {loading ? <div className='loading'>
                         <Spinner animation="grow" variant="success" />
@@ -69,8 +72,10 @@ function Products() {
                                         <Card.Title>
                                             <Link className='productTitle' to={`/products/${item.slug}`}>{item.name}</Link>
                                         </Card.Title>
+
                                         <Card.Title>${item.price}</Card.Title>
-                                        <Rating rating={item.rating} numerOfRating={item.numerOfRating} />
+                                        <Rating rating={item.rating} numberOfRating={item.numberOfRating} />
+                                        {console.log(product.numberOfRating)}
                                         <Card.Text>
                                             {item.carddescription}
                                         </Card.Text>

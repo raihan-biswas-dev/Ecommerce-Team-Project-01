@@ -1,33 +1,32 @@
 import { createContext, useReducer } from "react";
 
-const Store = createContext();
+export const Store = createContext()
 
 
-
-const userInitialState = {
-    userInfo: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
+const initialState = {
+    cart: {
+        cartItems: []
+    }
 }
 
-function userReducer(state, action) {
+function reducer(state, action) {
     switch (action.type) {
-        case 'USER_SIGNIN':
-            return { ...state, userInfo: action.payload }
-            case 'USER_LOGOUT':
-                return {...state,userInfo:null}
+        case 'CART_ADD_ITEM':
+            return {
+                ...state,
+                cart: {
+                    ...state.cart,
+                    cartItems: [...state.cart.cartItems, action.payload]
+                }
+            }
         default:
             return state
     }
 }
 
+export function StoreProvider(props) {
+    const [state, dispatch] = useReducer(useReducer, initialState)
 
-function StoreProvider(props) {
-    const [state3, dispatch3] = useReducer(userReducer, userInitialState);
-
-
-    const value = {state3, dispatch3};
-
-    return <Store.Provider value={value}> {props.children} </Store.Provider>;
+    const value = { state, dispatch }
+    return <Store.Provider value={value}>{props.children}</Store.Provider>
 }
-
-export { Store, StoreProvider }
-

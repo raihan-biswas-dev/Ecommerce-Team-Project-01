@@ -44,14 +44,14 @@ app.get('/banner', function (req, res) {
 
 
 
-// app.get('/products/:slug', function (req, res) {
-//   let product = data.find((item) => {
-//     if (item.slug == req.params.slug) {
-//       return item
-//     }
-//   })
-//   res.send(product)
-// })
+app.get('/products/:slug', function (req, res) {
+  let product = data.find((item) => {
+    if (item.slug == req.params.slug) {
+      return item
+    }
+  })
+  res.send(product)
+})
 
 
 let port = process.env.PORT || 8000

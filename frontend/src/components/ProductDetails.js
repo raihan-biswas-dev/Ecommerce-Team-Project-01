@@ -1,7 +1,12 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useContext, useEffect, useReducer } from 'react'
 import { useParams } from "react-router-dom";
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
+import InnerImageZoom from 'react-inner-image-zoom';
+import { Helmet } from 'react-helmet-async';
 import axios from 'axios'
-import { Container, Row, Col, Card, Button, Spinner, ListGroup } from 'react-bootstrap'
+import { Container, Row, Col, Card, Button, Alert, ListGroup, Badge } from 'react-bootstrap'
+import Rating from './Rating';
+import { Store } from '../Store';
 
 
 
@@ -19,20 +24,14 @@ function reducer(state, action) {
 }
 
 
-
-
 export default function ProductDetails() {
-
   let params = useParams();
-
-
-  const [{ loading, err, product }, dispatch] = useReducer(reducer, {
+  const [{ loading, err, productNotfoundErr, product }, dispatch] = useReducer(reducer, {
     loading: false,
     err: '',
+    productNotfoundErr: "Product Not Found",
     product: {},
   });
-
-
   useEffect(() => {
     let productData = async () => {
       dispatch({ type: 'FETCH_REQUEST' })
@@ -45,29 +44,78 @@ export default function ProductDetails() {
       }
     }
     productData()
-
   }, [params.slug])
 
 
+  // const { state, dispatch: ctxDispatch } = useContext(Store)
 
 
 
+  let handleAddToCart = () => {
+
+  }
 
   return (
-    // <div>{params.slug}</div>
     <Container>
-      <Row>
-        <Col lg={6}>Image</Col>
-        <Col lg={3}>
-          <Card style={{ width: '18rem' }}>
-            <ListGroup variant="flush">
-              <ListGroup.Item>{product.name}</ListGroup.Item>
-              <ListGroup.Item>{product.price}</ListGroup.Item>
-              <ListGroup.Item>{product.description}</ListGroup.Item>
-            </ListGroup>
-          </Card>
-        </Col>
-        <Col lg={3}>Add to cart</Col>
+      <Helmet>
+        <title>{product.name}</title>
+      </Helmet>
+      <Row className='mt-5'>
+        {product ?
+          <>
+            <Col lg={5}>
+              <InnerImageZoom src={product.img} zoomScale={1.5} width='450' zoomSrc={product.img} alt={product.name} />
+            </Col>
+
+            <Col lg={4}>
+              <Card className='p-2'>
+                <ListGroup variant="flush">
+                  <ListGroup.Item>
+                    <h4>{product.name}</h4>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+
+                    Stoke {product.stoke > 0 ?
+                      <Badge bg="success">
+                        {product.stoke}
+                      </Badge>
+                      :
+                      <Badge bg="danger">
+                        {product.stoke}
+                      </Badge>
+                    }
+
+                  </ListGroup.Item>
+
+                  <ListGroup.Item><h5>${product.price}</h5> </ListGroup.Item>
+                  <ListGroup.Item>
+                    <Rating rating={product.rating} numberOfRating={product.numberOfRating} />
+                  </ListGroup.Item>
+                  <ListGroup.Item>{product.description} </ListGroup.Item>
+                </ListGroup>
+              </Card>
+            </Col>
+
+            <Col lg={3}>
+              <Card className='p-3'>
+                <ListGroup variant="flush">
+                  <h5>Price</h5>
+                  <h4>${product.price}</h4>
+                </ListGroup>
+                <ListGroup variant="flush">
+                  <Button onClick={handleAddToCart} variant="dark">Add to cart</Button>
+                </ListGroup>
+              </Card>
+            </Col>
+          </>
+          :
+          <div className='text-center'>
+            <Alert className='p-5' variant="danger">
+              {productNotfoundErr}
+              <h3>Try another Product</h3>
+            </Alert>
+          </div>
+        }
       </Row>
     </Container>
   )
