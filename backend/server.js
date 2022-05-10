@@ -1,4 +1,4 @@
-import  express  from "express";
+import express from "express";
 import data from "./data.js";
 import cors from 'cors'
 const app = express()
@@ -16,8 +16,22 @@ app.get('/products', function (req, res) {
 })
 
 
+
+app.get('/products/:slug', function (req, res) {
+  let product = data.find((item) => {
+    // console.log("Frontend", req.params.slug)
+    // console.log("Backend", item.slug)
+
+    if (item.slug == req.params.slug) {
+      return item
+    }
+  })
+  res.send(product)
+})
+
+
 let port = process.env.PORT || 8000
 
-app.listen(8000,()=>{
-    console.log("I am From 8000")
+app.listen(8000, () => {
+  console.log("I am From 8000")
 })

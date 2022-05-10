@@ -35,7 +35,7 @@ function Products() {
             try {
                 let product = await axios.get("/products");
                 dispatch({ type: 'FETCH_SUCCESS', payload: product.data })
-                console.log(product.data)
+
             } catch (err) {
                 dispatch({ type: 'FETCH_FAIL', payload: err.message })
             }
@@ -67,7 +67,7 @@ function Products() {
                                     <Card.Img variant="top" src={item.img} />
                                     <Card.Body>
                                         <Card.Title>
-                                            <Link to={`/products/${item.slug}`}>{item.name}</Link>
+                                            <Link className='productTitle' to={`/products/${item.slug}`}>{item.name}</Link>
                                         </Card.Title>
                                         <Card.Title>${item.price}</Card.Title>
                                         <Rating rating={item.rating} numerOfRating={item.numerOfRating} />
