@@ -19,7 +19,6 @@ app.use(express.urlencoded({extended:true}))
 app.use('/api/seed',seedRouter)
 app.use('/api/users',userRouter)
 
-
 app.get('/', function (req, res) {
   res.send('Hello World')
 })
