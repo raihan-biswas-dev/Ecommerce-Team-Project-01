@@ -1,4 +1,6 @@
+
 import { Container, Navbar, Nav, NavDropdown} from 'react-bootstrap'
+
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from './components/Home';
 import Login from './components/Login';
@@ -8,6 +10,7 @@ import { useContext } from 'react';
 import { Store } from './Store';
 import { ToastContainer, } from 'react-toastify';
 
+import ProductDetails from './components/ProductDetails';
 
 function App() {
   const {state3,dispatch3} = useContext(Store)
@@ -55,6 +58,30 @@ function App() {
         <ToastContainer position='bottom-center' limit={1} />
         </Container>
       </BrowserRouter>
+
+    <div>
+
+
+
+
+      <BrowserRouter>
+        <Navbar bg="light" variant="light">
+          <Container>
+            <Navbar.Brand href="#home">MERN TEAM</Navbar.Brand>
+            <Nav className="ms-auto mainMenu">
+              <Link to="/">Home</Link>
+              <Link to="/products">Products</Link>
+            </Nav>
+          </Container>
+        </Navbar>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:slug" element={<ProductDetails />} />
+        </Routes>
+      </BrowserRouter>
+
     </div>
     
   );
