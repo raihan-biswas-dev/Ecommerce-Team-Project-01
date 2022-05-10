@@ -15,13 +15,58 @@ a {
   text-transform: capitalize;
 }
 
-.loading{
+.loading {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.productTitle{
+.productTitle {
   color: #000;
+}
+
+.signinforminpu1 {
+  height: 60px;
+  background: transparent;
+  border: 1px solid #f4f5f6;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 10px 20px;
+  outline: none;
+  color: var(--clr-common-text);
+  font-size: 16px;
+}
+.signinforminpu2 {
+  height: 60px;
+  background: transparent;
+  border: 1px solid #f4f5f6;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 10px 20px;
+  outline: none;
+  color: var(--clr-common-text);
+  font-size: 16px;
+}
+
+.sing-button {
+  height: 60px;
+  background: #171717;
+  text-align: center;
+  line-height: 58px;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.3s;
+  border: 1px solid #f4f5f6;
+  width: 600px;
+}
+.sing-button:hover {
+  background-color: #fff;
+  color: #171717;
+  border-color: #171717;
+  transition: 0.4s;
 }

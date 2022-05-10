@@ -33,7 +33,7 @@ function Products() {
         let productData = async () => {
             dispatch({ type: 'FETCH_REQUEST' })
             try {
-                let product = await axios.get("/products");
+                let product = await axios.get("/api/products");
                 dispatch({ type: 'FETCH_SUCCESS', payload: product.data })
 
             } catch (err) {

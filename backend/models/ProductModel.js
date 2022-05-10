@@ -69,6 +69,6 @@ const productSchema = new mongooes.Schema({
     }
 )
 
-const product = mongooes.model('product', productSchema)
+const Product = mongooes.model('product', productSchema)
 
-export default product
+export default Product
