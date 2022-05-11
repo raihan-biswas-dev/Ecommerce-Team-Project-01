@@ -9,6 +9,9 @@ import { Store } from './Store';
 import { ToastContainer, } from 'react-toastify';
 import ProductDetails from './components/ProductDetails';
 import CartPage from './components/CartPage';
+import { AiFillDelete } from 'react-icons/ai';
+import { AiOutlineHeart } from 'react-icons/ai';
+import WishList from './components/Wishlist';
 
 
 
@@ -20,14 +23,22 @@ function App() {
     localStorage.removeItem("userInfo")
   }
 
-  const {state,dispatch,} = useContext(Store)
+  const {state,dispatch,state2,dispatch2} = useContext(Store)
   const {cart:{cartItems}} = state
+  const {wishlist:{wishlistItems}}= state2
 
 
 
 let handleRemoveItem=(item)=>{
   dispatch({
       type:'CART_REMOVE_ITEM',
+      payload:item
+  })
+}
+
+let handleRemoveWItem=(item)=>{
+  dispatch2({
+      type:'WISHLIST_REMOVE_ITEM',
       payload:item
   })
 }
@@ -49,7 +60,29 @@ let updateCart=(item,quantity)=>{
             <Nav className="ms-auto mainMenu">
               <Link to="/">Home</Link>
               <Link to="/products">Products</Link>
-              <NavDropdown id="nav-dropdown-dark-example" className="menuicn" title="Cart">
+              <NavDropdown style={{marginLeft:"150px",fontSize:"20px"}} title={<AiOutlineHeart className="menuicn"/>} id="basic-nav-dropdown">
+          
+      {wishlistItems.map((item)=>(
+      
+                      
+        
+      <>
+        <img width="80" className='mt-2'  src={item.img}/>
+      <Link style={{color:"#333"}} to={`/products/${item.slug}`}>{item.name}</Link>
+                            <span onClick={()=>handleRemoveWItem(item)}><AiFillDelete/></span>
+                            <NavDropdown.Divider/>
+      </>
+      
+      ))}   
+               
+                   <div className="text-center">
+                   <Button variant='info'>
+                   <Link to="/wishlist">Go to Wishlist</Link></Button>
+                   </div>
+            </NavDropdown>
+            {state2.wishlist.wishlistItems.length>0 && (<span class='badge badge-warning' id='lblCartCount1'> {state2.wishlist.wishlistItems.length} </span>
+            )}
+              <NavDropdown id="nav-dropdown-dark-example" title="Cart">
         {cartItems.map((item)=>(
         <div>
           <img src={item.img} style={{width:"80px"}}/>
@@ -70,7 +103,12 @@ let updateCart=(item,quantity)=>{
           <Button className='viewcart'><Link style={{color:"#fff"}} to='/cartpage'>View Cart</Link></Button>
            </div>
         </NavDropdown>
-              <Nav.Link >
+        {state.cart.cartItems.length>0 && ( 
+          
+          <span class='badge badge-warning' id='lblCartCount'> {state.cart.cartItems.length} </span>
+
+ )} 
+              <Nav.Link>
                 {userInfo ?
                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
@@ -95,6 +133,7 @@ let updateCart=(item,quantity)=>{
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/cartpage" element={<CartPage />} />
+          <Route path="/wishlist" element={<WishList />} />
         </Routes>
 
         <Container>

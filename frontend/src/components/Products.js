@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Helmet } from 'react-helmet-async';
 import Rating from './Rating';
 import { Store } from '../Store';
+import { BsHeart } from 'react-icons/bs';
 
 
 
@@ -47,7 +48,7 @@ function Products() {
 
     }, [])
 
-    const { state , dispatch: ctxDispatch,} = useContext(Store)
+    const { state , dispatch: ctxDispatch,dispatch2} = useContext(Store)
     const {cart} = state
 
     let handleAddToCart=async(product)=>{
@@ -68,7 +69,13 @@ function Products() {
 
     const {cart:{cartItems}} = state
   
-  
+    let handleAddToWishlist= async(product)=>{
+    
+        dispatch2({
+          type:'WISHLIST_ADD_ITEM',
+          payload:{...product}
+        })
+      }
 
 
 
@@ -103,12 +110,14 @@ function Products() {
                                         {item.stoke == 0
           ?
           <span class="add-to-cart">
-          <Button disabled className='addTocartBtn' variant="danger">Out Of Stock</Button>
+          <Button disabled className='addTocartBtn' variant="danger">Out Of Stock</Button><button onClick={()=>handleAddToWishlist(item)} style={{marginLeft:"130px",marginTop:"-4px",position:"absolute",fontSize:"20px",background:"transparent",borderColor:"transparent",color:"#fff"}}><BsHeart className='heart'/></button>
+          <button onClick={()=>handleAddToWishlist(item)}  className='wishbtn1'><BsHeart/></button>
         </span>
           
           :
             <span class="add-to-cart">
-              <Button onClick={()=>handleAddToCart(item)}  className='addTocartBtn' variant="primary">Add to cart</Button>
+              <Button onClick={()=>handleAddToCart(item)}  variant="primary">Add to cart</Button>
+              <button onClick={()=>handleAddToWishlist(item)}  className='wishbtn'><BsHeart/></button>
               
             </span>
             
