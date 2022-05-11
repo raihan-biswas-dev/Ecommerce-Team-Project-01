@@ -178,3 +178,43 @@ a {
     margin-top: 10px;
     height: 40px;
 }
+
+.details{
+  background-color: transparent;
+  border-color: transparent;
+  color: #333;
+  margin-left: -50px;
+  font-size: 20px;
+  position: absolute;
+}
+
+.details:hover{
+  color: #F7941D;
+  transition: .4s;
+}
+
+.addtocartdetails{
+  margin-top: 20px;
+  margin-left: 60px;
+  background-color: #171717;
+  border-color: #171717;
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.addtocartdetails:hover{
+  background-color: #333;
+  color: #fff;
+  transition: .4s;
+  border-color: #333;
+}
+
+
+.detailscard{
+  position: absolute;
+  width: 400px;
+  margin-top: -350px;
+  margin-left: 370px;
+}
