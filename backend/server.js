@@ -53,6 +53,16 @@ app.get('/products/:slug', function (req, res) {
   res.send(product)
 })
 
+app.get("/cartproduct/:id",function(req,res){
+  let product= data.find((item)=>{
+      if(req.params.id == item._id){
+         return item
+      }
+    })
+    res.send(product)
+  //   console.log(product)
+})
+
 
 let port = process.env.PORT || 8000
 
