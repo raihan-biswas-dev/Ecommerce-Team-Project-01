@@ -7,6 +7,7 @@ import axios from 'axios'
 import { Container, Row, Col, Card, Button, Alert, ListGroup, Badge } from 'react-bootstrap'
 import Rating from './Rating';
 import { Store } from '../Store';
+import { BsHeart } from 'react-icons/bs';
 
 
 
@@ -67,6 +68,16 @@ export default function ProductDetails() {
     })
     navigate(`/cartpage`)
 }
+
+let handleAddToWishlist= async(product)=>{
+    
+  dispatch2({
+    type:'WISHLIST_ADD_ITEM',
+    payload:{...product}
+  })
+}
+
+
   return (
     <Container>
       <Helmet>
@@ -119,11 +130,13 @@ export default function ProductDetails() {
               
                 <ListGroup variant="flush">
                   <Button disabled onClick={handleAddToCart} variant="danger">Out Of Stock</Button>
+              <button onClick={()=>handleAddToWishlist(product)}  className='wishbtnpd'>Add To WishList<BsHeart style={{marginLeft:"10px"}}/></button>
                 </ListGroup>
               :
               
                 <ListGroup variant="flush">
                   <Button onClick={handleAddToCart} variant="dark">Add to cart</Button>
+              <button onClick={()=>handleAddToWishlist(product)}  className='wishbtnpd'>Add To WishList<BsHeart style={{marginLeft:"10px"}}/></button>
                 </ListGroup>
               }
               </Card>
