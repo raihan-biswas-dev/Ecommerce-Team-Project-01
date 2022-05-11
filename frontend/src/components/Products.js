@@ -1,9 +1,11 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useContext, useEffect, useReducer } from 'react'
 import { Container, Row, Col, Card, Button, Spinner } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import axios from 'axios'
 import { Helmet } from 'react-helmet-async';
 import Rating from './Rating';
+import { Store } from '../Store';
+
 
 
 function reducer(state, action) {
@@ -45,9 +47,28 @@ function Products() {
 
     }, [])
 
+    const { state , dispatch: ctxDispatch,} = useContext(Store)
+    const {cart} = state
+
+    let handleAddToCart=async(product)=>{
+        const existingItem = cart.cartItems.find((item)=>item._id === product._id)
+        const quantity = existingItem ? existingItem.quantity +1 : 1
+        const {data} = await axios.get(`/cartproduct/${product._id}`)       
+        if(data.instock <quantity){
+            window.alert(`${product.title}Product Out Of Stock`)
+            return
+        }
+        
+        ctxDispatch({
+            type:'CART_ADD_ITEM',
+            payload:{...product,quantity}
+        })
+    }
 
 
-
+    const {cart:{cartItems}} = state
+  
+  
 
 
 
@@ -79,7 +100,19 @@ function Products() {
                                         <Card.Text>
                                             {item.carddescription}
                                         </Card.Text>
-                                        <Button className='addTocartBtn' variant="primary">Add to cart</Button>
+                                        {item.stoke == 0
+          ?
+          <span class="add-to-cart">
+          <Button disabled className='addTocartBtn' variant="danger">Out Of Stock</Button>
+        </span>
+          
+          :
+            <span class="add-to-cart">
+              <Button onClick={()=>handleAddToCart(item)}  className='addTocartBtn' variant="primary">Add to cart</Button>
+              
+            </span>
+            
+}
                                     </Card.Body>
                                 </Card>
                             </Col>

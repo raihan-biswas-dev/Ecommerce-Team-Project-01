@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useReducer } from 'react'
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import InnerImageZoom from 'react-inner-image-zoom';
 import { Helmet } from 'react-helmet-async';
@@ -26,6 +26,7 @@ function reducer(state, action) {
 
 export default function ProductDetails() {
   let params = useParams();
+  let navigate =useNavigate()
   const [{ loading, err, productNotfoundErr, product }, dispatch] = useReducer(reducer, {
     loading: false,
     err: '',
@@ -47,14 +48,25 @@ export default function ProductDetails() {
   }, [params.slug])
 
 
-  // const { state, dispatch: ctxDispatch } = useContext(Store)
+  const { state , dispatch: ctxDispatch,state2,dispatch2} = useContext(Store)
+  const {cart} = state
 
 
-
-  let handleAddToCart = () => {
-
-  }
-
+  let handleAddToCart=async()=>{
+    const existingItem = cart.cartItems.find((item)=>item._id === product._id)
+    const quantity = existingItem ? existingItem.quantity +1 : 1
+    const {data} = await axios.get(`/cartproduct/${product._id}`)
+    if(data.instock <quantity){
+        window.alert(`${product.title}Product Out Of Stock`)
+        return
+    }
+    
+    ctxDispatch({
+        type:'CART_ADD_ITEM',
+        payload:{...product,quantity}
+    })
+    navigate(`/cartpage`)
+}
   return (
     <Container>
       <Helmet>
@@ -102,9 +114,18 @@ export default function ProductDetails() {
                   <h5>Price</h5>
                   <h4>${product.price}</h4>
                 </ListGroup>
+                {product.stoke ==0 
+                ?
+              
+                <ListGroup variant="flush">
+                  <Button disabled onClick={handleAddToCart} variant="danger">Out Of Stock</Button>
+                </ListGroup>
+              :
+              
                 <ListGroup variant="flush">
                   <Button onClick={handleAddToCart} variant="dark">Add to cart</Button>
                 </ListGroup>
+              }
               </Card>
             </Col>
           </>

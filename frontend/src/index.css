@@ -70,3 +70,63 @@ a {
   border-color: #171717;
   transition: 0.4s;
 }
+
+
+.navbar-expand .navbar-nav .dropdown-menu {
+  position: absolute;
+  width: 400px;
+}
+
+.cart-page-total {
+  padding-top: 50px;
+}
+.cart-page-total > h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+.cart-page-total > ul {
+  border: 1px solid #edeef2;
+}
+.cart-page-total > ul > li {
+  list-style: none;
+  font-size: 15px;
+  color: #575757;
+  padding: 14px 30px;
+  border-bottom: 1px solid #edeef2;
+  font-weight: 400;
+}
+.cart-page-total ul > li > span {
+  float: right;
+}
+.cart-page-total li:last-child {
+  border-bottom: 0;
+}
+
+
+.border-btn {
+  font-size: 16px;
+  color: var(--clr-common-heading);
+  border: 1px solid #212529;
+  padding: 0 40px;
+  height: 50px;
+  border-radius: 5px;
+  display: inline-block;
+  line-height: 48px;
+  font-weight: 600;
+  text-align: center;
+}
+.border-btn:hover {
+  color: #fff;
+  background: #212529;
+}
+
+
+.cart-page-total > ul > li {
+  list-style: none;
+  font-size: 15px;
+  color: #575757;
+  padding: 14px 30px;
+  border-bottom: 1px solid #edeef2;
+  font-weight: 400;
+}
