@@ -48,9 +48,9 @@ export default function CartPage() {
 
                             {cartItems.map((item) => (
                                 <ListGroup.Item>
-                                    <Row>
-                                        <Col lg={4}>
-                                            <img width='50' src={item.img} alt={item.name} />
+                                    <Row className=''>
+                                        <Col lg={6} className='text-left'>
+                                            <img width='60' src={item.img} alt={item.name} />
                                             <Link to={`/products/${item.slug}`} >{item.name}</Link>
                                         </Col>
                                         <Col lg={3}>

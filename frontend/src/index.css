@@ -1,89 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
-/* =====================Slick Slider=========================== */
-.slick-list,
-.slick-slider,
-.slick-track {
-    position: relative;
-    display: block;
-}
-.slick-loading .slick-slide,
-.slick-loading .slick-track {
-    visibility: hidden;
-}
-.slick-slider {
-    box-sizing: border-box;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -khtml-user-select: none;
-    -ms-touch-action: pan-y;
-    touch-action: pan-y;
-    -webkit-tap-highlight-color: transparent;
-}
-.slick-list {
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-}
-.slick-list:focus {
-    outline: 0;
-}
-.slick-list.dragging {
-    cursor: pointer;
-    cursor: hand;
-}
-.slick-slider .slick-list,
-.slick-slider .slick-track {
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-}
-.slick-track {
-    top: 0;
-    left: 0;
-}
-.slick-track:after,
-.slick-track:before {
-    display: table;
-    content: "";
-}
-.slick-track:after {
-    clear: both;
-}
-.slick-slide {
-    display: none;
-    float: left;
-    height: 100%;
-    min-height: 1px;
-}
-[dir="rtl"] .slick-slide {
-    float: right;
-}
-.slick-slide img {
-    display: block;
-}
-.slick-slide.slick-loading img {
-    display: none;
-}
-.slick-slide.dragging img {
-    pointer-events: none;
-}
-.slick-initialized .slick-slide {
-    display: block;
-}
-.slick-vertical .slick-slide {
-    display: block;
-    height: auto;
-    border: 1px solid transparent;
-}
-.slick-arrow.slick-hidden {
-    display: none;
-} /*# sourceMappingURL=slick.min.css.map */
-/* =====================Slick Slider=========================== */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -97,7 +14,7 @@ a {
 /* Header Part Start */
 
 .menu a {
-    color: #af4caa;
+    color: #000000;
     margin-left: 40px;
     font-weight: 500;
     font-family: "Roboto", sans-serif;
@@ -121,7 +38,7 @@ a {
 }
 
 a#nav-dropdown {
-    color: #af4caa;
+    color: #000000;
     font-family: "Roboto", sans-serif;
 }
 
@@ -142,6 +59,10 @@ a#nav-dropdown {
 .mainDropdown {
     width: 400px;
     padding: 10px;
+}
+
+.menuIcon{
+    font-size: 26px;
 }
 
 .dropdown-menu[data-bs-popper] {
@@ -170,6 +91,7 @@ a#nav-dropdown {
     background-color: #212529;
     border-color: #212529;
 }
+
 
 /* Sider cart */
 
@@ -262,16 +184,9 @@ a#nav-dropdown {
 }
 /* spinner Loading end */
 
-/* Header Part end */
-
-/* 
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
-*/
-
 /* rating Part end */
 .rating {
-    color: #07501e;
+    color: #000000;
 }
 /* rating Part Start */
 

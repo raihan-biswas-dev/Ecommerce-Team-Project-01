@@ -9,9 +9,10 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { useContext } from "react";
 import { FaTrash, FaShoppingCart } from 'react-icons/fa';
+import { FiShoppingCart } from 'react-icons/fi';
+import { AiOutlineHeart, AiOutlineUser } from 'react-icons/ai';
 import { Store } from "./Store";
 import Wishlist from "./components/Wishlist";
-import CompareProduct from "./components/CompareProduct";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Shipping from "./components/Shipping";
@@ -67,9 +68,8 @@ function App() {
             <Nav className="ms-auto menu">
               <Link className="item" to="/">Home</Link>
               <Link className="item" to="products">products</Link>
-              <Link className="item" to="compare">Compare product</Link>
               {/* Dopdown menu */}
-              <NavDropdown title="Cart" id="nav-dropdown">
+              <NavDropdown title={<FiShoppingCart className="menuIcon" />} id="nav-dropdown">
                 {cartItems.length > 0 ?
 
                   <div>
@@ -111,7 +111,7 @@ function App() {
 
               {/* ==================================================================================== */}
 
-              <NavDropdown title="Wish List" id="nav-dropdown">
+              <NavDropdown title={<AiOutlineHeart className="menuIcon" />} id="nav-dropdown">
                 {wishlistItems.length > 0 ?
 
                   <div>
@@ -159,7 +159,7 @@ function App() {
 
                 :
 
-                <Link className="item" to="/signin">Sign In</Link>
+                <Link className="item" to="/signin"><AiOutlineUser className="menuIcon" /></Link>
               }
               {/* =================================================================================================== */}
             </Nav>
@@ -202,7 +202,6 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/wishlist" element={<Wishlist />} />
-          <Route path="/compare" element={<CompareProduct />} />
           <Route path="/shipping" element={<Shipping />} />
         </Routes>
       </BrowserRouter>
