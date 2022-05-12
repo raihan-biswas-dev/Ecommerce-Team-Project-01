@@ -113,7 +113,7 @@ function Products() {
                                             <Link className='productTitle' to={`/products/${item.slug}`}>{item.name}</Link>
                                         </Card.Title>
 
-                                        <Card.Title>${item.price}</Card.Title>
+                                        <Card.Title className='productPrice'>${item.price}</Card.Title>
                                         <Rating rating={item.rating} numberOfRating={item.numberOfRating} />
                                         {console.log(product.numberOfRating)}
                                         <Card.Text>
@@ -125,14 +125,14 @@ function Products() {
                                                 <Button size="sm" disabled className='addTocartBtn me-2' variant="danger">Out Of Stock</Button>
                                                 <Button size="sm" className="me-2" onClick={() => handleDetails(item.slug)}>Details</Button>
                                                 <button style={{ marginLeft: "130px", marginTop: "-4px", position: "absolute", fontSize: "20px", background: "transparent", borderColor: "transparent", color: "#fff" }}><BsHeart className='heart' /></button>
-                                                <button onClick={() => handleAddToWishlist(item)} className='wishbtn1'><BsHeart /></button>
+                                                <Button onClick={() => handleAddToWishlist(item)} className='wishbtn1'><BsHeart /></Button>
                                             </span>
 
                                             :
                                             <span class="add-to-cart">
                                                 <Button size="sm" className="me-2" onClick={() => handleAddToCart(item)} variant="primary">Add to cart</Button>
                                                 <Button size="sm" className="me-2" onClick={() => handleDetails(item.slug)}>Details</Button>
-                                                <button className="me-3 wishbtn" onClick={() => handleAddToWishlist(item)}><BsHeart /></button>
+                                                <Button className="me-3 wishbtn" onClick={() => handleAddToWishlist(item)}><BsHeart /></Button>
 
                                             </span>
 
@@ -164,7 +164,7 @@ function Products() {
 
                                         </Col>
                                         <Col lg={6}>
-                                            <Card.Body className="text-center">
+                                            <Card.Body className="text-left mt-5">
                                                 <Card.Title>
                                                     <h3>{productDetails.name}</h3>
                                                 </Card.Title>

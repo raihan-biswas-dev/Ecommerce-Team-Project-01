@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
-
 * {
     margin: 0;
     padding: 0;
@@ -61,7 +60,7 @@ a#nav-dropdown {
     padding: 10px;
 }
 
-.menuIcon{
+.menuIcon {
     font-size: 26px;
 }
 
@@ -73,8 +72,8 @@ a#nav-dropdown {
 
 .btn-primary {
     color: #fff;
-    /* background-color: #0d6efd; */
-    /* border-color: #0d6efd; */
+    background-color: #000000 !important;
+    border-color: #000000 !important;
 }
 .gotoCartBtn,
 .checkoutBtn {
@@ -92,7 +91,6 @@ a#nav-dropdown {
     border-color: #212529;
 }
 
-
 /* Sider cart */
 
 .sideCart {
@@ -100,6 +98,20 @@ a#nav-dropdown {
     top: 50%;
     right: 0;
     z-index: 999;
+}
+
+.productTitle {
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.productPrice {
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Dropdown Menu end */
@@ -152,28 +164,10 @@ a#nav-dropdown {
     background: #4e7661;
 }
 
-/* .btn-check:focus + .btn-primary,
-.btn-primary:focus {
-    color: #fff;
-    background-color: #000;
-    border-color: none !important;
-    box-shadow: none !important;
-} */
-
 .btn-check:focus + .btn-dark,
 .btn-dark:focus {
     box-shadow: none !important;
 }
-
-/* .btn-check:active+.btn-primary:focus, .btn-check:checked+.btn-primary:focus, .btn-primary.active:focus, .btn-primary:active:focus, .show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: none !important;
-} */
-
-/* .btn-primary:hover {
-    color: #fff;
-    background-color: #4e7661;
-    border-color: #4e7661;
-} */
 
 /* spinner Loading start */
 .loading {
@@ -190,23 +184,20 @@ a#nav-dropdown {
 }
 /* rating Part Start */
 
-
 /* Shipping Part Start */
 .shipping_main .w-25 {
-  width: 35% !important;
+    width: 35% !important;
 }
 
-.step h3{
-  text-align: center;
-  padding: 10px 0;
+.step h3 {
+    text-align: center;
+    padding: 10px 0;
 }
-.step .stepActive{
-  background:  green;
-  color: #fff;
+.step .stepActive {
+    background: green;
+    color: #fff;
 }
 /* Shipping Part end */
-
-
 
 /* product inner css Part Start */
 .productHeading a {
@@ -304,5 +295,3 @@ svg.slick-arrow.slick-next {
     top: 0;
 }
 /* Banner Part end */
-
-

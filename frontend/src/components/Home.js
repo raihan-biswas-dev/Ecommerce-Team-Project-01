@@ -5,9 +5,11 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>MERN Team</title>
+        <title>Home</title>
       </Helmet>
-      <h2>Home Page</h2>
+      <div className='mt-5 text-center'>
+      <h2>হোমপেজে বালটাও নাই পুরো ফাঁকা</h2>
+      </div>
     </>
   )
 }

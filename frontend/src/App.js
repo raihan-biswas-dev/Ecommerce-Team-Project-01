@@ -78,9 +78,9 @@ function App() {
                         <ListGroup.Item className="mainDropdown">
                           <img className="ms-2 mt-2" width='50' src={item.img} alt="" />
                           <Link className="ms-2 mt-2" to={`/products/${item.slug}`} >{item.name}</Link>
-                          <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity - 1)} disabled={item.quantity === 1} variant="success">-</Button>
+                          <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity - 1)} disabled={item.quantity === 1} variant="dark">-</Button>
                           <span className="p-2 mt-2"> {item.quantity} </span>
-                          <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity + 1)} disabled={item.quantity === item.stoke} variant="success">+</Button>
+                          <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity + 1)} disabled={item.quantity === item.stoke} variant="dark">+</Button>
                           <Button className="deleteBtn ms-2 mt-2" onClick={() => handleRemoveItem(item)} variant=""><FaTrash /> Delete</Button>
                         </ListGroup.Item>
                       ))}
@@ -104,12 +104,10 @@ function App() {
                 }
               </NavDropdown>
               {state.cart.cartItems.length > 0 && (
-                <Badge pill bg="success">
+                <Badge pill bg="dark">
                   {state.cart.cartItems.length}
                 </Badge>
               )}
-
-              {/* ==================================================================================== */}
 
               <NavDropdown title={<AiOutlineHeart className="menuIcon" />} id="nav-dropdown">
                 {wishlistItems.length > 0 ?
@@ -143,12 +141,11 @@ function App() {
                 }
               </NavDropdown>
               {state2.wishlist.wishlistItems.length > 0 && (
-                <Badge pill bg="success">
+                <Badge pill bg="dark">
                   {state2.wishlist.wishlistItems.length}
                 </Badge>
               )}
               {userInfo ?
-
                 <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -161,7 +158,6 @@ function App() {
 
                 <Link className="item" to="/signin"><AiOutlineUser className="menuIcon" /></Link>
               }
-              {/* =================================================================================================== */}
             </Nav>
           </Container>
         </Navbar>
@@ -178,9 +174,9 @@ function App() {
               <ListGroup.Item className="mainDropdown">
                 <img className="ms-2 mt-2" width='50' src={item.img} alt="" />
                 <Link className="ms-2 mt-2" to={`/products/${item.slug}`} >{item.name}</Link>
-                <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity - 1)} disabled={item.quantity === 1} variant="success">-</Button>
+                <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity - 1)} disabled={item.quantity === 1} variant="dark">-</Button>
                 <span className="p-2 mt-2"> {item.quantity} </span>
-                <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity + 1)} disabled={item.quantity === item.stoke} variant="success">+</Button>
+                <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity + 1)} disabled={item.quantity === item.stoke} variant="dark">+</Button>
                 <Button className="deleteBtn ms-2 mt-2" onClick={() => handleRemoveItem(item)} variant=""><FaTrash /> Delete</Button>
               </ListGroup.Item>
             ))}
