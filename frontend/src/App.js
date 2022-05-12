@@ -63,7 +63,7 @@ function App() {
           <ToastContainer position="bottom-center" limit={1} />
           <Container>
             <Navbar.Brand>
-              <Link to='/'><img src="images/logo.png" height='50px' alt="" /></Link>
+              <Link to='/'><img src="assets/images/logo/3.png" height='50px' alt="" /></Link>
             </Navbar.Brand>
             <Nav className="ms-auto menu">
               <Link className="item" to="/">Home</Link>
