@@ -328,8 +328,6 @@ svg.slick-arrow.slick-next {
 }
 
 .addtocartdetails{
-  margin-top: 20px;
-  margin-left: 60px;
   background-color: #171717;
   border-color: #171717;
   width: 100px;
@@ -353,3 +351,13 @@ svg.slick-arrow.slick-next {
   margin-left: 370px;
 
 }
+
+/* element.style {
+    margin-left: 320px;
+    margin-top: -90px;
+    position: absolute;
+    font-size: 20px;
+    background: transparent;
+    border-color: transparent;
+    display: none;
+} */

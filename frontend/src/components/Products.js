@@ -59,7 +59,7 @@ function Products() {
 
     const { state, dispatch: ctxDispatch, dispatch2, state3 } = useContext(Store)
     const { cart } = state
-    const { userInfo } = state
+    const { userInfo } = state3
 
 
 
@@ -81,10 +81,12 @@ function Products() {
             })
         } else {
             window.alert("Please login first")
-            navigate('/')
+            navigate(`/signin`)
         }
 
     }
+
+
 
 
 
@@ -225,34 +227,36 @@ function Products() {
 
 
                             <Card>
-                                <Card.Header>{details.name}</Card.Header>
                                 <Card.Body>
-                                    <img src={details.img} style={{ width: "350px" }} alt={details.name} />
-                                    <div className='detailscard'>
-                                        <Card.Title>{details.name}</Card.Title>
-                                        <Card.Text>
-                                            {details.description}
-                                        </Card.Text>
-                                        <Card.Text>
-                                            <Rating rating={details.rating} numberofrating={details.numberofrating} className='rating' />
-                                        </Card.Text>
-                                        <Card.Text style={{ color: "#F7941D", fontSize: "20px" }}>
-                                            $ {details.price}
-                                        </Card.Text>
-                                        <button onClick={() => handleAddToWishlist(details)} style={{ marginLeft: "320px", marginTop: "-90px", position: "absolute", fontSize: "20px", background: "transparent", borderColor: "transparent" }}><BsHeart className='heart' /></button>
-                                        {details.stoke == 0
 
-                                            ?
+                                    <Row>
+                                        <Col lg={6}>
+                                            <img src={details.img} style={{ width: "350px" }} alt={details.name} />
+                                        </Col>
+                                        <Col lg={6}>
+                                            <div className='mt-5'>
+                                                <Card.Title>{details.name}</Card.Title>
+                                                <Card.Text>
+                                                    {details.description}
+                                                </Card.Text>
+                                                <Card.Text>
+                                                    <Rating rating={details.rating} numberofrating={details.numberofrating} className='rating' />
+                                                </Card.Text>
+                                                <Card.Text>
+                                                    $ {details.price}
+                                                </Card.Text>
+                                                {details.stoke == 0
 
-                                            <button style={{ marginLeft: "120px", background: "#dc3545", color: "#fff", borderRadius: "5px", height: "35px", width: "120px" }} disabled className='txt1 buynowpp'>Out Of Stock</button>
-
-                                            :
-                                            <>
-                                                <button className='addtocartdetails' onClick={() => handleAddToCart(details)} >Add in cart</button>
-                                            </>
-
-                                        }
-                                    </div>
+                                                    ?
+                                                    <button>Out Of Stock</button>
+                                                    :
+                                                    <>
+                                                        <button className='addtocartdetails' onClick={() => handleAddToCart(details)} >Add in cart</button>
+                                                    </>
+                                                }
+                                            </div>
+                                        </Col>
+                                    </Row>
 
                                 </Card.Body>
                             </Card>

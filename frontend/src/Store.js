@@ -72,15 +72,21 @@ function userReducer(state, action) {
         case 'USER_SIGNIN':
             return { ...state, userInfo: action.payload }
         case 'USER_LOGOUT':
-            return { ...state, userInfo: null }
+            localStorage.removeItem("cartItems")
+            return { ...state, userInfo: "" }
         default:
             return state
     }
 }
 
+
+
 const shippingInitialState = {
     shippingAddress: localStorage.getItem('shippingAddress') ? JSON.parse(localStorage.getItem('shippingAddress')) : {}
 }
+
+
+
 
 function shippingReducer(state, action) {
     switch (action.type) {
