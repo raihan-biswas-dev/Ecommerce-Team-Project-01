@@ -1,9 +1,7 @@
 import express from "express";
 import data from "./data.js";
-import discount from "./discount.js";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
-import bannerData from "./bannerData.js";
 import seedRouter from "./routes/seedRouter.js";
 import userRouter from "./routes/userRouter.js";
 import productRouter from "./routes/productRouter.js";
@@ -33,11 +31,6 @@ app.use(cors())
 // })
 
 
-app.get('/banner', function (req, res) {
-  res.send(bannerData)
-})
-
-
 // app.get('/products', function (req, res) {
 //   res.send(data)
 // })
@@ -62,6 +55,7 @@ app.get("/cartproduct/:id",function(req,res){
     res.send(product)
   //   console.log(product)
 })
+
 
 
 let port = process.env.PORT || 8000
