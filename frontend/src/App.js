@@ -17,6 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Shipping from "./components/Shipping";
 
+
 function App() {
   const [show, setShow] = useState(false);
 
@@ -54,6 +55,7 @@ function App() {
   let handleLogOut = () => {
     dispatch3({ type: 'USER_LOGOUT' })
     localStorage.removeItem('userInfo')
+    
   }
 
   return (
