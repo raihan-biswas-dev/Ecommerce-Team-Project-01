@@ -90,18 +90,23 @@ const WishList = () => {
       <Col lg={2}>
         <img src={item.img} style={{width:"80px"}}/>
       </Col>
-      <Col style={{textAlign:"center",}}  lg={2}>
+      <Col   lg={2}>
       <Link style={{color:"#333"}} to={`/products/${item.slug}`}>{item.name}</Link>
       
       </Col>
-      <Col lg={2}>
+      <Col style={{textAlign:"center"}} lg={2}>
       <a>$ {item.price}</a>
       </Col>
-      <Col style={{textAlign:"center"}} lg={2}>
+      <Col lg={2}>
       <a  style={{marginLeft:"0px",width:"200px",marginTop:"8px"}} onClick={()=>handleRemoveItem(item)}><Button variant='danger'>Delete</Button></a>
       </Col>
       <Col   lg={3}>
-      <Button className='deleteBtn'  onClick={() => handleAddToCart(item)} variant="dark">Add To Cart </Button>
+      {item.stoke===0 ?
+    <Button disabled variant="danger">Out Of Stock </Button>
+    :
+    <Button onClick={() => handleAddToCart(item)} variant="dark">Add To Cart </Button>
+    
+    }
       </Col>
     </Row>
   </ListGroup.Item>
