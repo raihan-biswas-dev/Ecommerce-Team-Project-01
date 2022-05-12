@@ -1,8 +1,7 @@
 import InnerImageZoom from 'react-inner-image-zoom';
 import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { Container, Row, Col, Card, Button, Spinner, Modal } from 'react-bootstrap'
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { Helmet } from 'react-helmet-async';
 import Rating from './Rating';
@@ -28,8 +27,11 @@ function reducer(state, action) {
 
 
 
+
 function Products() {
 
+
+    const navigate = useNavigate()
     const [productDetails, setProductDetails] = useState({})
 
 
@@ -39,7 +41,7 @@ function Products() {
         err: '',
         product: [],
     });
-    const [details,setDetails] = useState({})
+    const [details, setDetails] = useState({})
     useEffect(() => {
         let productData = async () => {
             dispatch({ type: 'FETCH_REQUEST' })
@@ -55,44 +57,51 @@ function Products() {
 
     }, [])
 
-    const { state, dispatch: ctxDispatch, dispatch2 } = useContext(Store)
+    const { state, dispatch: ctxDispatch, dispatch2, state3 } = useContext(Store)
     const { cart } = state
+    const { userInfo } = state
 
 
 
-    let handleAddToCart=async(product)=>{
-        const existingItem = cart.cartItems.find((item)=>item._id === product._id)
-        const quantity = existingItem ? existingItem.quantity +1 : 1
-        const {data} = await axios.get(`/cartproduct/${product._id}`)       
-        const {cart:{cartItems}} = state
-        if(data.instock <quantity){
+    let handleAddToCart = async (product) => {
+        if (userInfo) {
+            const existingItem = cart.cartItems.find((item) => item._id === product._id)
+            const quantity = existingItem ? existingItem.quantity + 1 : 1
+            const { data } = await axios.get(`/cartproduct/${product._id}`)
+            const { cart: { cartItems } } = state
+            if (data.instock < quantity) {
 
-            window.alert(`${product.title}Product Out Of Stock`)
-            return
+                window.alert(`${product.title}Product Out Of Stock`)
+                return
+            }
+
+            ctxDispatch({
+                type: 'CART_ADD_ITEM',
+                payload: { ...product, quantity }
+            })
+        } else {
+            window.alert("Please login first")
+            navigate('/')
         }
 
-        ctxDispatch({
-            type: 'CART_ADD_ITEM',
-            payload: { ...product, quantity }
-        })
     }
 
 
 
 
-    let handleDetails=async(pro)=>{
+    let handleDetails = async (pro) => {
         setLgShow(true)
         let productDetails = await axios.get(`/products/${pro}`)
         setDetails(productDetails.data)
-      }
-      
-    let handleAddToWishlist= async(product)=>{
-    
+    }
+
+    let handleAddToWishlist = async (product) => {
+
         dispatch2({
-          type:'WISHLIST_ADD_ITEM',
-          payload:{...product}
+            type: 'WISHLIST_ADD_ITEM',
+            payload: { ...product }
         })
-      }
+    }
 
 
 
@@ -126,7 +135,7 @@ function Products() {
 
                                         <Card.Title className='productPrice'>${item.price}</Card.Title>
                                         <Rating rating={item.rating} numberOfRating={item.numberOfRating} />
-                                       
+
                                         <Card.Text>
                                             {item.carddescription}
                                         </Card.Text>
@@ -201,58 +210,58 @@ function Products() {
 
 
                 <Modal
-        size="lg"
-        show={lgShow}
-        onHide={() => setLgShow(false)}
-        aria-labelledby="example-modal-sizes-title-lg"
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="example-modal-sizes-title-lg">
-            Product Details
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {details? 
-        
-        
-        <Card>
-  <Card.Header>{details.name}</Card.Header>
-  <Card.Body>
-    <img src={details.img} style={{width:"350px"}}/>
-    <div className='detailscard'>
-      <Card.Title>{details.name}</Card.Title>
-    <Card.Text>
-      {details.description}
-    </Card.Text>
-    <Card.Text>
-      <Rating rating={details.rating} numberofrating={details.numberofrating} className='rating'/>
-    </Card.Text>
-    <Card.Text style={{color:"#F7941D",fontSize:"20px"}}>
-      $ {details.price}
-    </Card.Text>
-    <button onClick={()=>handleAddToWishlist(details)} style={{marginLeft:"320px",marginTop:"-90px",position:"absolute",fontSize:"20px",background:"transparent",borderColor:"transparent"}}><BsHeart className='heart'/></button>
-    {details.stoke==0
-    
-    ?
-  
-    <button style={{marginLeft:"120px",background:"#dc3545",color:"#fff",borderRadius:"5px",height:"35px",width:"120px"}} disabled className='txt1 buynowpp'>Out Of Stock</button>
-  
-  :
-  <>
-  <button className='addtocartdetails' onClick={()=>handleAddToCart(details)} >Add in cart</button>
-  </>
-  
-  }
-    </div>
-    
-  </Card.Body>
-</Card>
-:
-<h1>Details Not Found</h1>
+                    size="lg"
+                    show={lgShow}
+                    onHide={() => setLgShow(false)}
+                    aria-labelledby="example-modal-sizes-title-lg"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title id="example-modal-sizes-title-lg">
+                            Product Details
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {details ?
 
-}
-</Modal.Body>
-</Modal>
+
+                            <Card>
+                                <Card.Header>{details.name}</Card.Header>
+                                <Card.Body>
+                                    <img src={details.img} style={{ width: "350px" }} alt={details.name} />
+                                    <div className='detailscard'>
+                                        <Card.Title>{details.name}</Card.Title>
+                                        <Card.Text>
+                                            {details.description}
+                                        </Card.Text>
+                                        <Card.Text>
+                                            <Rating rating={details.rating} numberofrating={details.numberofrating} className='rating' />
+                                        </Card.Text>
+                                        <Card.Text style={{ color: "#F7941D", fontSize: "20px" }}>
+                                            $ {details.price}
+                                        </Card.Text>
+                                        <button onClick={() => handleAddToWishlist(details)} style={{ marginLeft: "320px", marginTop: "-90px", position: "absolute", fontSize: "20px", background: "transparent", borderColor: "transparent" }}><BsHeart className='heart' /></button>
+                                        {details.stoke == 0
+
+                                            ?
+
+                                            <button style={{ marginLeft: "120px", background: "#dc3545", color: "#fff", borderRadius: "5px", height: "35px", width: "120px" }} disabled className='txt1 buynowpp'>Out Of Stock</button>
+
+                                            :
+                                            <>
+                                                <button className='addtocartdetails' onClick={() => handleAddToCart(details)} >Add in cart</button>
+                                            </>
+
+                                        }
+                                    </div>
+
+                                </Card.Body>
+                            </Card>
+                            :
+                            <h1>Details Not Found</h1>
+
+                        }
+                    </Modal.Body>
+                </Modal>
             </Container>
         </div>
     )

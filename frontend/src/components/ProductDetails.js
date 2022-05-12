@@ -29,7 +29,7 @@ function reducer(state, action) {
 
 export default function ProductDetails() {
   let params = useParams();
-  let navigate =useNavigate()
+  let navigate = useNavigate()
   const [{ loading, err, productNotfoundErr, product }, dispatch] = useReducer(reducer, {
     loading: false,
     err: '',
@@ -51,66 +51,73 @@ export default function ProductDetails() {
   }, [params.slug])
 
 
-  const { state , dispatch: ctxDispatch,state2,dispatch2} = useContext(Store)
-  const {cart} = state
+  const { state, dispatch: ctxDispatch, state2, dispatch2, state3 } = useContext(Store)
+  const { cart } = state
+  const { userInfo } = state3
   const [couponText, setCouponText] = useState("")
   const [errCoupon, setErrCoupon] = useState("")
-  const [discountPrice, setdDiscountPrice] = useState("")  
-  const [{productNotFoundErr}] = useReducer(reducer, {
+  const [discountPrice, setdDiscountPrice] = useState("")
+  const [{ productNotFoundErr }] = useReducer(reducer, {
     loading: false,
     err: '',
     product: {},
     productNotFoundErr: 'Product Not found Try another Product'
-});
+  });
 
 
-  let handleAddToCart=async()=>{
-    const existingItem = cart.cartItems.find((item)=>item._id === product._id)
-    const quantity = existingItem ? existingItem.quantity +1 : 1
-    const {data} = await axios.get(`/cartproduct/${product._id}`)
-    if(data.instock <quantity){
+  let handleAddToCart = async () => {
+
+    if (userInfo) {
+      const existingItem = cart.cartItems.find((item) => item._id === product._id)
+      const quantity = existingItem ? existingItem.quantity + 1 : 1
+      const { data } = await axios.get(`/cartproduct/${product._id}`)
+      if (data.instock < quantity) {
         window.alert(`${product.title}Product Out Of Stock`)
         return
-    }
-    
-    ctxDispatch({
-        type:'CART_ADD_ITEM',
-        payload: { ...product, price: discountPrice ? discountPrice : product.price, quantity }
-    })
-    navigate(`/cartpage`)
-}
-
-let handleAddToWishlist= async(product)=>{
-    
-  dispatch2({
-    type:'WISHLIST_ADD_ITEM',
-    payload:{...product}
-  })
-}
-
-let handleCouponText = (e) => {
-  setCouponText(e.target.value)
-}
-
-let handleCoupon = () => {
-
-  if (product.coupon !== "") {
-      if (product.coupon == couponText) {
-          let discountPrice = (product.price * product.discount) / 100
-          let afterDiscountProduct = product.price - discountPrice
-          if (afterDiscountProduct < product.discountLimit) {
-              setErrCoupon("For this price discount not applicable")
-          } else {
-              setdDiscountPrice(afterDiscountProduct)
-          }
-      } else {
-          setErrCoupon("Wrong coupon code")
       }
-  } else {
-      setErrCoupon("Coupon not available")
+
+      ctxDispatch({
+        type: 'CART_ADD_ITEM',
+        payload: { ...product, price: discountPrice ? discountPrice : product.price, quantity }
+      })
+      navigate(`/cartpage`)
+    }else{
+      window.alert("Please login first")
+      navigate(`/signin`)
+    }
   }
 
-}
+  let handleAddToWishlist = async (product) => {
+
+    dispatch2({
+      type: 'WISHLIST_ADD_ITEM',
+      payload: { ...product }
+    })
+  }
+
+  let handleCouponText = (e) => {
+    setCouponText(e.target.value)
+  }
+
+  let handleCoupon = () => {
+
+    if (product.coupon !== "") {
+      if (product.coupon == couponText) {
+        let discountPrice = (product.price * product.discount) / 100
+        let afterDiscountProduct = product.price - discountPrice
+        if (afterDiscountProduct < product.discountLimit) {
+          setErrCoupon("For this price discount not applicable")
+        } else {
+          setdDiscountPrice(afterDiscountProduct)
+        }
+      } else {
+        setErrCoupon("Wrong coupon code")
+      }
+    } else {
+      setErrCoupon("Coupon not available")
+    }
+
+  }
 
 
 
@@ -162,44 +169,44 @@ let handleCoupon = () => {
                   <h5>Price</h5>
                   <h4>${product.price}</h4>
                 </ListGroup>
-                {product.stoke ==0 
-                ?
-              
-                <>
-                <ListGroup variant="flush">
-                  <Button disabled onClick={handleAddToCart} variant="danger">Out Of Stock</Button>
-              <button onClick={()=>handleAddToWishlist(product)}  className='wishbtnpd'>Add To WishList<BsHeart style={{marginLeft:"10px"}}/></button>
-                </ListGroup>
-                <Form.Control className='mt-3' disabled type="text" placeholder="Discount Not Avaiable" />
-                                            <Form.Text  id="passwordHelpBlock" muted>
-                                                {errCoupon}
-                                            </Form.Text>
-                                            <Button disabled className="mt-3" variant="dark">Apply</Button>
-                
-            
-                </>
-              :
-              
-                <ListGroup variant="flush">
-                  <ListGroup.Item><h3>Price</h3></ListGroup.Item>
-                                        <ListGroup.Item>
-                                            <h4>${discountPrice ? <del>{product.price}</del> : product.price}</h4>
-                                        </ListGroup.Item>
-                                        <ListGroup.Item>
-                                            {discountPrice ? <h5>After discount : ${discountPrice}</h5> : ""}
-                                        </ListGroup.Item>
-                                        <ListGroup.Item>
-                                            <Form.Control onChange={handleCouponText} type="text" placeholder="Coupon code" />
-                                            <Form.Text id="passwordHelpBlock" muted>
-                                                {errCoupon}
-                                            </Form.Text>
-                                            <br />
-                                            <Button onClick={handleCoupon} className="me-3" variant="dark">Apply</Button>
-                                            <Button onClick={handleAddToCart} variant="dark">Add To Cart</Button>
-                                        </ListGroup.Item>
-              <button onClick={()=>handleAddToWishlist(product)}  className='wishbtnpd'>Add To WishList<BsHeart style={{marginLeft:"10px"}}/></button>
-                </ListGroup>
-              }
+                {product.stoke == 0
+                  ?
+
+                  <>
+                    <ListGroup variant="flush">
+                      <Button disabled onClick={handleAddToCart} variant="danger">Out Of Stock</Button>
+                      <button onClick={() => handleAddToWishlist(product)} className='wishbtnpd'>Add To WishList<BsHeart style={{ marginLeft: "10px" }} /></button>
+                    </ListGroup>
+                    <Form.Control className='mt-3' disabled type="text" placeholder="Discount Not Avaiable" />
+                    <Form.Text id="passwordHelpBlock" muted>
+                      {errCoupon}
+                    </Form.Text>
+                    <Button disabled className="mt-3" variant="dark">Apply</Button>
+
+
+                  </>
+                  :
+
+                  <ListGroup variant="flush">
+                    <ListGroup.Item><h3>Price</h3></ListGroup.Item>
+                    <ListGroup.Item>
+                      <h4>${discountPrice ? <del>{product.price}</del> : product.price}</h4>
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      {discountPrice ? <h5>After discount : ${discountPrice}</h5> : ""}
+                    </ListGroup.Item>
+                    <ListGroup.Item>
+                      <Form.Control onChange={handleCouponText} type="text" placeholder="Coupon code" />
+                      <Form.Text id="passwordHelpBlock" muted>
+                        {errCoupon}
+                      </Form.Text>
+                      <br />
+                      <Button onClick={handleCoupon} className="me-3" variant="dark">Apply</Button>
+                      <Button onClick={handleAddToCart} variant="dark">Add To Cart</Button>
+                    </ListGroup.Item>
+                    <button onClick={() => handleAddToWishlist(product)} className='wishbtnpd'>Add To WishList<BsHeart style={{ marginLeft: "10px" }} /></button>
+                  </ListGroup>
+                }
               </Card>
             </Col>
           </>
