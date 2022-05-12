@@ -295,3 +295,17 @@ svg.slick-arrow.slick-next {
     top: 0;
 }
 /* Banner Part end */
+
+.wishbtnpd{
+    background: #000000;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.wishbtnpd:hover{
+    background-color: #fff;
+    border-color: #000000;
+    color: #000000;
+    transition: .4s;
+}

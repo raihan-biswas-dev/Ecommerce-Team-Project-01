@@ -1,13 +1,15 @@
-import React, { useContext, useEffect, useReducer } from 'react'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.min.css';
 import InnerImageZoom from 'react-inner-image-zoom';
 import { Helmet } from 'react-helmet-async';
 import axios from 'axios'
-import { Container, Row, Col, Card, Button, Alert, ListGroup, Badge } from 'react-bootstrap'
+import { Container, Row, Col, Card, Button, Alert, ListGroup, Badge, Form } from 'react-bootstrap'
 import Rating from './Rating';
 import { Store } from '../Store';
 import { BsHeart } from 'react-icons/bs';
+
+
 
 
 
@@ -51,6 +53,15 @@ export default function ProductDetails() {
 
   const { state , dispatch: ctxDispatch,state2,dispatch2} = useContext(Store)
   const {cart} = state
+  const [couponText, setCouponText] = useState("")
+  const [errCoupon, setErrCoupon] = useState("")
+  const [discountPrice, setdDiscountPrice] = useState("")  
+  const [{productNotFoundErr}] = useReducer(reducer, {
+    loading: false,
+    err: '',
+    product: {},
+    productNotFoundErr: 'Product Not found Try another Product'
+});
 
 
   let handleAddToCart=async()=>{
@@ -64,7 +75,7 @@ export default function ProductDetails() {
     
     ctxDispatch({
         type:'CART_ADD_ITEM',
-        payload:{...product,quantity}
+        payload: { ...product, price: discountPrice ? discountPrice : product.price, quantity }
     })
     navigate(`/cartpage`)
 }
@@ -76,6 +87,32 @@ let handleAddToWishlist= async(product)=>{
     payload:{...product}
   })
 }
+
+let handleCouponText = (e) => {
+  setCouponText(e.target.value)
+}
+
+let handleCoupon = () => {
+
+  if (product.coupon !== "") {
+      if (product.coupon == couponText) {
+          let discountPrice = (product.price * product.discount) / 100
+          let afterDiscountProduct = product.price - discountPrice
+          if (afterDiscountProduct < product.discountLimit) {
+              setErrCoupon("For this price discount not applicable")
+          } else {
+              setdDiscountPrice(afterDiscountProduct)
+          }
+      } else {
+          setErrCoupon("Wrong coupon code")
+      }
+  } else {
+      setErrCoupon("Coupon not available")
+  }
+
+}
+
+
 
 
   return (
@@ -128,14 +165,38 @@ let handleAddToWishlist= async(product)=>{
                 {product.stoke ==0 
                 ?
               
+                <>
                 <ListGroup variant="flush">
                   <Button disabled onClick={handleAddToCart} variant="danger">Out Of Stock</Button>
               <button onClick={()=>handleAddToWishlist(product)}  className='wishbtnpd'>Add To WishList<BsHeart style={{marginLeft:"10px"}}/></button>
                 </ListGroup>
+                <Form.Control className='mt-3' disabled type="text" placeholder="Discount Not Avaiable" />
+                                            <Form.Text  id="passwordHelpBlock" muted>
+                                                {errCoupon}
+                                            </Form.Text>
+                                            <Button disabled className="mt-3" variant="dark">Apply</Button>
+                
+            
+                </>
               :
               
                 <ListGroup variant="flush">
-                  <Button onClick={handleAddToCart} variant="dark">Add to cart</Button>
+                  <ListGroup.Item><h3>Price</h3></ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <h4>${discountPrice ? <del>{product.price}</del> : product.price}</h4>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            {discountPrice ? <h5>After discount : ${discountPrice}</h5> : ""}
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <Form.Control onChange={handleCouponText} type="text" placeholder="Coupon code" />
+                                            <Form.Text id="passwordHelpBlock" muted>
+                                                {errCoupon}
+                                            </Form.Text>
+                                            <br />
+                                            <Button onClick={handleCoupon} className="me-3" variant="dark">Apply</Button>
+                                            <Button onClick={handleAddToCart} variant="dark">Add To Cart</Button>
+                                        </ListGroup.Item>
               <button onClick={()=>handleAddToWishlist(product)}  className='wishbtnpd'>Add To WishList<BsHeart style={{marginLeft:"10px"}}/></button>
                 </ListGroup>
               }
