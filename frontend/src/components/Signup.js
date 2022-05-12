@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import bannerData from '../bannerData'
 import { Store } from '../Store'
 import { toast } from 'react-toastify'
 
@@ -53,13 +52,7 @@ useEffect(()=>{
 
   return (
     <>
-  
-  {bannerData.map(item => (    
-    <div>
-      <img src={item.img}/>
-  
-  </div>
-  ))}
+
   <Container>
       <Form style={{maxWidth:"600px",margin:"0 auto",marginTop:"150px"}} onSubmit={handlesignupSubmit} >
 
