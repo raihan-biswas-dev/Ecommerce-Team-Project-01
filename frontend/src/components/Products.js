@@ -115,7 +115,7 @@ function Products() {
 
                                         <Card.Title className='productPrice'>${item.price}</Card.Title>
                                         <Rating rating={item.rating} numberOfRating={item.numberOfRating} />
-                                        {console.log(product.numberOfRating)}
+                                       
                                         <Card.Text>
                                             {item.carddescription}
                                         </Card.Text>

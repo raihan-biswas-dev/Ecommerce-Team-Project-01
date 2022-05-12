@@ -8,7 +8,7 @@ export default function Home() {
         <title>Home</title>
       </Helmet>
       <div className='mt-5 text-center'>
-      <h2>হোমপেজে বালটাও নাই পুরো ফাঁকা</h2>
+      <h2>Home</h2>
       </div>
     </>
   )
