@@ -24,23 +24,58 @@ const Signup = () => {
 
   const { userInfo } = state3
 
+
   let handlesignupSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      const { data } = await axios.post("/api/users/signup", {
+    e.preventDefault();
+
+    if (!name || !email || !password || !confirmpassword) {
+      alert("please fill the fields");
+    } else if (password !== confirmpassword) {
+      alert("Pass doesn't match");
+    } else {
+      await axios.post("/api/users/signup", {
         name,
         email,
-        password
+        password,
+        confirmpassword,
+      }).then((res) => {
+        dispatch3({ type: "USER_SIGNIN", payload: res.data });
+        localStorage.setItem("userInfo", JSON.stringify(res.data));
+        navigate(redirect || "/");
       })
-      console.log(data)
-
-      dispatch3({ type: 'USER_SIGNIN', payload: data })
-      localStorage.setItem('userInfo', JSON.stringify(data))
-      navigate(redirect || '/')
-    } catch (err) {
-      toast.error("Invalid email or pass")
+        .catch((err) => {
+          alert("something went wrong");
+        });
     }
-  }
+  };
+
+
+
+
+
+
+
+
+
+
+
+  // let handlesignupSubmit = async (e) => {
+  //   e.preventDefault()
+
+  //   try {
+  //     const { data } = await axios.post("/api/users/signup", {
+  //       name,
+  //       email,
+  //       password
+  //     })
+
+  //     dispatch3({ type: 'USER_SIGNIN', payload: data })
+  //     localStorage.setItem('userInfo', JSON.stringify(data))
+  //     navigate(redirect || '/')
+  //   } catch (err) {
+  //     toast.error("Invalid email or pass")
+  //   }
+  // }
 
 
   useEffect(() => {

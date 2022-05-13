@@ -24,19 +24,6 @@ app.use('/api/users', userRouter)
 app.use(cors())
 
 
-
-
-// app.get('/', function (req, res) {
-//   res.send('Hello World')
-// })
-
-
-// app.get('/products', function (req, res) {
-//   res.send(data)
-// })
-
-
-
 app.get('/products/:slug', function (req, res) {
   let product = data.find((item) => {
     if (item.slug == req.params.slug) {
