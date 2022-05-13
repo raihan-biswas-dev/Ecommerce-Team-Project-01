@@ -5,6 +5,9 @@
     padding: 0;
     outline: 0;
 }
+.Container {
+    width: 1140px;
+}
 
 a {
     text-decoration: none;
@@ -43,6 +46,7 @@ a#nav-dropdown {
 
 .dropdown-menu a {
     margin-left: 0;
+    font-size: 12px !important;
 }
 
 .dropdown-menu {
@@ -75,10 +79,9 @@ a#nav-dropdown {
     background-color: #000000 !important;
     border-color: #000000 !important;
 }
-.gotoCartBtn,
-.checkoutBtn {
-    background: #4e7661 !important;
-}
+.gotoCartBtn, .checkoutBtn {
+    background: #000000 !important;
+}s
 
 .gotoCartBtn:hover,
 .checkoutBtn:hover {
@@ -117,7 +120,7 @@ a#nav-dropdown {
 /* Dropdown Menu end */
 
 .deleteBtn {
-    background: #4e7661;
+    background: #000000;
     color: #fff;
 }
 
@@ -128,7 +131,7 @@ a#nav-dropdown {
 
 .productBtn {
     color: #fff;
-    background-color: #07501e;
+    background-color: #000000;
     border-color: transparent !important;
     font-size: 13px;
     font-weight: 400;
@@ -161,7 +164,7 @@ a#nav-dropdown {
     background: #000;
 }
 .outOfStokeBtn:hover {
-    background: #4e7661;
+    background: #000000;
 }
 
 .btn-check:focus + .btn-dark,
@@ -194,7 +197,7 @@ a#nav-dropdown {
     padding: 10px 0;
 }
 .step .stepActive {
-    background: green;
+    background: rgb(0, 0, 0);
     color: #fff;
 }
 /* Shipping Part end */
@@ -249,7 +252,7 @@ a#nav-dropdown {
 }
 
 .modalAddToCartBtn:hover {
-    background: #4e7661;
+    background: #000000;
 }
 /* product inner css Part end */
 
@@ -348,29 +351,22 @@ svg.slick-arrow.slick-next {
     margin-top: -350px;
     margin-left: 370px;
 }
-
-/* element.style {
-    margin-left: 320px;
-    margin-top: -90px;
-    position: absolute;
-    font-size: 20px;
-    background: transparent;
-    border-color: transparent;
-    display: none;
-} */
-
 /* Reegister Form */
 .w-25 {
     width: 33% !important;
 }
 
-.signupForm . {
-    padding: 10px 15px;
-    border: none;
-    margin-right: 10px;
-}
 .loginForm .loginBtn {
     padding: 10px 15px;
     border: none;
     margin-right: 10px;
 }
+
+.modalDetailsPrice {
+    color: #000;
+    font-size: 22px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+}
+
+

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import Banner from './Bnner.js'
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
         <title>Home</title>
       </Helmet>
       <div className='mt-5 text-center'>
-      <h2>Home</h2>
+        <Banner />
       </div>
     </>
   )

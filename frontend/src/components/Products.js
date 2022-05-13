@@ -240,9 +240,10 @@ function Products() {
                                                     {details.description}
                                                 </Card.Text>
                                                 <Card.Text>
-                                                    <Rating rating={details.rating} numberofrating={details.numberofrating} className='rating' />
+
+                                                    <Rating rating={details.rating} numberOfRating={details.numberOfRating} className='rating' />
                                                 </Card.Text>
-                                                <Card.Text>
+                                                <Card.Text className='modalDetailsPrice'>
                                                     $ {details.price}
                                                 </Card.Text>
                                                 {details.stoke == 0

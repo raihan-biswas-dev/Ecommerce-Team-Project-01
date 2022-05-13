@@ -24,6 +24,7 @@ app.use('/api/users', userRouter)
 app.use(cors())
 
 
+
 app.get('/products/:slug', function (req, res) {
   let product = data.find((item) => {
     if (item.slug == req.params.slug) {

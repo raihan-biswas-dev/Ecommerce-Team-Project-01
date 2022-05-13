@@ -83,7 +83,7 @@ function App() {
                           <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity - 1)} disabled={item.quantity === 1} variant="dark">-</Button>
                           <span className="p-2 mt-2"> {item.quantity} </span>
                           <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity + 1)} disabled={item.quantity === item.stoke} variant="dark">+</Button>
-                          <Button className="deleteBtn ms-2 mt-2" onClick={() => handleRemoveItem(item)} variant=""><FaTrash /> Delete</Button>
+                          <Button className="deleteBtn ms-2 mt-2" onClick={() => handleRemoveItem(item)} variant=""><FaTrash /></Button>
                         </ListGroup.Item>
                       ))}
                       <NavDropdown.Divider />
@@ -120,7 +120,7 @@ function App() {
                         <ListGroup.Item className="mainDropdown">
                           <img className="ms-2 mt-2" width='50' src={item.img} alt="" />
                           <Link className="ms-2 mt-2" to={`/products/${item.slug}`} >{item.name}</Link>
-                          <Button className="deleteBtn ms-2 mt-2" onClick={() => handleRemoveItemWishlist(item)} variant=""><FaTrash /> Delete</Button>
+                          <Button className="deleteBtn ms-2 mt-2" onClick={() => handleRemoveItemWishlist(item)} variant=""><FaTrash /></Button>
                         </ListGroup.Item>
                       ))}
                       <NavDropdown.Divider />
@@ -175,11 +175,11 @@ function App() {
             {cartItems.map((item) => (
               <ListGroup.Item className="mainDropdown">
                 <img className="ms-2 mt-2" width='50' src={item.img} alt="" />
-                <Link className="ms-2 mt-2" to={`/products/${item.slug}`} >{item.name}</Link>
+                <Link className="ms-2 mt-2 cart cartDropDown" to={`/products/${item.slug}`} >{item.name}</Link>
                 <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity - 1)} disabled={item.quantity === 1} variant="dark">-</Button>
                 <span className="p-2 mt-2"> {item.quantity} </span>
                 <Button className="ms-2 mt-2" onClick={() => updateCart(item, item.quantity + 1)} disabled={item.quantity === item.stoke} variant="dark">+</Button>
-                <Button className="deleteBtn ms-2 mt-2" onClick={() => handleRemoveItem(item)} variant=""><FaTrash /> Delete</Button>
+                <Button className="deleteBtn ms-2 mt-2" onClick={() => handleRemoveItem(item)} variant=""><FaTrash /></Button>
               </ListGroup.Item>
             ))}
 

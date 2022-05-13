@@ -49,35 +49,6 @@ const Signup = () => {
     }
   };
 
-
-
-
-
-
-
-
-
-
-
-  // let handlesignupSubmit = async (e) => {
-  //   e.preventDefault()
-
-  //   try {
-  //     const { data } = await axios.post("/api/users/signup", {
-  //       name,
-  //       email,
-  //       password
-  //     })
-
-  //     dispatch3({ type: 'USER_SIGNIN', payload: data })
-  //     localStorage.setItem('userInfo', JSON.stringify(data))
-  //     navigate(redirect || '/')
-  //   } catch (err) {
-  //     toast.error("Invalid email or pass")
-  //   }
-  // }
-
-
   useEffect(() => {
     if (userInfo) {
       navigate(redirect)
